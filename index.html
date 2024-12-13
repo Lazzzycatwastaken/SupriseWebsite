@@ -41,12 +41,12 @@
     <img id="freddyImage" src="assets/freddy.png" alt="Freddy Image">
 
     <!-- Video and Audio, initially hidden -->
-    <video id="video" width="100%" height="auto" muted loop playsinline preload="metadata">
+    <video id="video" width="100%" height="auto" muted playsinline preload="metadata">
         <source src="assets/foxy.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
 
-    <audio id="audio" loop>
+    <audio id="audio">
         <source src="assets/foxy.mp3" type="audio/mp3">
         Your browser does not support the audio element.
     </audio>
@@ -70,6 +70,16 @@
             video.muted = true;             // Keep video muted
             video.play();                  // Start video (muted)
             audio.play();                  // Start audio
+
+            // Stop the video from looping by setting the loop to false
+            video.onended = function() {
+                video.style.display = "none";  // Hide the video once it's done
+            };
+
+            // Stop the audio from looping by removing the loop attribute
+            audio.onended = function() {
+                audio.style.display = "none";  // Hide the audio once it's done
+            };
         });
     </script>
 
