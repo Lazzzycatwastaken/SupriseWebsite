@@ -71,14 +71,9 @@
             video.play();                  // Start video (muted)
             audio.play();                  // Start audio
 
-            // Remove the loop and stop the video from looping by setting loop to false
-            video.loop = false;
-
-            // Stop the video from looping by adding onended event
+            // Stop the video from looping by setting the loop to false
             video.onended = function() {
                 video.style.display = "none";  // Hide the video once it's done
-                // Close the window after the video finishes
-                window.close();  // Try to close the window
             };
 
             // Stop the audio from looping by removing the loop attribute
