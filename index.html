@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surprise Video and Audio</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+            background-color: #222;
+        }
+        #surpriseButton {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+        #freddyImage {
+            max-width: 300px;
+            display: block;
+            margin-bottom: 20px;
+        }
+        video, audio {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Surprise button -->
+    <button id="surpriseButton">Click for a surprise</button>
+
+    <!-- Image below the button -->
+    <img id="freddyImage" src="freddy.png" alt="Freddy Image">
+
+    <!-- Video and Audio, initially hidden -->
+    <video id="video" width="100%" height="auto" muted loop playsinline preload="metadata">
+        <source src="foxy.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <audio id="audio" loop>
+        <source src="foxy.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        // When the button is clicked, play the video and audio
+        document.getElementById("surpriseButton").addEventListener("click", function() {
+            // Hide the button and image
+            document.getElementById("surpriseButton").style.display = "none";
+            document.getElementById("freddyImage").style.display = "none";
+            
+            // Show the video and audio elements
+            const video = document.getElementById("video");
+            const audio = document.getElementById("audio");
+
+            // Ensure video and audio elements are ready to play
+            video.style.display = "block";  // Show video
+            audio.style.display = "block";  // Show audio
+
+            // Unmute and play video and audio after user interaction
+            video.muted = false;           // Unmute the video
+            video.play();                  // Start video
+            audio.play();                  // Start audio
+        });
+    </script>
+
+</body>
+</html>
