@@ -66,9 +66,9 @@
             video.style.display = "block";  // Show video
             audio.style.display = "block";  // Show audio
 
-            // Unmute and play video and audio after user interaction
-            video.muted = false;           // Unmute the video
-            video.play();                  // Start video
+            // Play audio and mute the video
+            video.muted = true;             // Keep video muted
+            video.play();                  // Start video (muted)
             audio.play();                  // Start audio
         });
     </script>
